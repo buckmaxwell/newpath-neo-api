@@ -1,0 +1,115 @@
+# HEADER INFO (SAME FOR ALL):
+
+Accept: application/vnd.api+json
+
+# REQUEST BODIES:
+
+
+
+1. POST /users -- create max
+
+{
+	"data":
+	{
+	    "type":"users",
+	    "attributes":
+	    {
+	        "email": "max@gmail.com",
+	        "password":"max",
+	        "gender": "m"
+	    }
+	}
+}
+
+2. POST /users -- create max's mom
+
+{
+	"data":
+	{
+	    "type":"users",
+	    "attributes":
+	    {
+	        "email": "maxsmom@gmail.com",
+	        "password":"maxsmom",
+	        "gender": "f"
+	    }
+	}
+}
+
+3. PATCH users/max@gmail.com/relationships/mom -- create the relationship between max and his mom
+
+{
+	"data":{"type":"users", "id":"maxsmom@gmail.com"}
+}
+
+
+4. POST /users -- create max's brother
+{
+  "data": {
+    "type": "users",
+    "attributes": {
+      "email": "sam@gmail.com",
+      "password": "sam",
+      "gender": "m"
+    },
+    "relationships": {
+      "mom": {
+        "data": {
+          "type": "users",
+          "id": "maxsmom@gmail.com"
+        }
+      }
+    }
+  }
+}
+
+
+4. POST /users -- create one of max's friends
+
+{
+	"data":
+	{
+	    "type":"users",
+	    "attributes":
+	    {
+	        "email": "jeff@gmail.com",
+	        "password":"jeff",
+	        "gender": "m"
+	    }
+	}
+}
+
+5. POST /users -- create another one of max's friends
+
+{
+	"data":
+	{
+	    "type":"users",
+	    "attributes":
+	    {
+	        "email": "jeff@gmail.com",
+	        "password":"jeff",
+	        "gender": "m"
+	    }
+	}
+}
+
+2. POST /users
+
+{
+	"data":
+	{
+	    "type":"users",
+	    "attributes":
+	    {
+	        "email": "max@gmail.com",
+	        "password":"max",
+	        "gender": "m"
+	    }
+	}
+}
+
+
+
+
+
